@@ -1,6 +1,6 @@
 # Hut availability 
 
-Fetches Alpine hut bed availability from the [hut-reservation.org](https://www.hut-reservation.org) REST API. Outputs a wide-format table (huts as rows, dates as columns) and optionally to a CSV file.
+Fetches alpine hut bed availability from the [hut-reservation.org](https://www.hut-reservation.org) REST API. Outputs a wide-format table (huts as rows, dates as columns) and optionally to a CSV file.
 
 ## Requirements
 
