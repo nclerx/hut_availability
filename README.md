@@ -16,12 +16,12 @@ python hrs_tool.py [--from_date DD.MM.YYYY] [--to_date DD.MM.YYYY] [--huts NAME 
 
 ### Flags
 
-| Flag | Default | Description |
-|------|---------|-------------|
-| `--from_date` | today | Start date (inclusive), format `DD.MM.YYYY` |
-| `--to_date` | today + 7 days | End date (inclusive), format `DD.MM.YYYY` |
-| `--huts` | Haute Route huts | One or more partial hut name(s) to query. Case-insensitive, umlaut-tolerant (e.g. `schonbiel` or `schoenbiel` both match `Schönbielhütte SAC`). Quotes required for names with spaces. |
-| `--csv` / `--no-csv` | `--csv` | Write results to `output/availability_<from>_<to>_<huts>.csv`. The output directory is created automatically. |
+| Flag | Description |
+|------|-------------|
+| `--from_date` | Start date (inclusive), format `DD.MM.YYYY` (default: today) |
+| `--to_date` | End date (inclusive), format `DD.MM.YYYY` (default: today + 7 days) |
+| `--huts` | One or more partial hut name(s) to query. Case-insensitive, umlaut-tolerant (e.g. `schonbiel` or `schoenbiel` both match `Schönbielhütte SAC`). Quotes required for names with spaces. |
+| `--csv` / `--no-csv` | Write results to `output/availability_<from>_<to>_<huts>.csv`. The output directory is created automatically (default: `--csv`) | 
 
 The default huts are some on the Haute Route: Dorée, Vignettes, Dix, Trient, Valsorey, Chanrion.
 
