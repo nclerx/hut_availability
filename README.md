@@ -24,9 +24,14 @@ python hrs_tool.py [--from_date DD.MM.YYYY] [--to_date DD.MM.YYYY] [--huts NAME 
 | `--to_date` | End date (inclusive), format `DD.MM.YYYY` (default: today + 7 days) |
 | `--huts` | One or more partial hut name(s) to query. |
 | `--csv` / `--no-csv` | Write results to `output/availability_<from>_<to>_<huts>.csv`. The output directory is created automatically (default: `--csv`) | 
-| `--country` | Country in which hut should be located
+| `--country` | Country in which hut should be located |
+| `--altitude_min` | Minimum altitude at which the hut should be located (optional) |
+| `--altitude_max` | Minimum altitude at which the hut should be located (optional) |
 
-Use either the argument(s) `--country` / `--region` (optional, currently only for CH) or `--huts`. Regions can be individual cantons, or `central` (LU, OW, NW, SZ, UR, ZG), `east` (AI, AR, GL, GR, SG) and `west` (FR, JU, VD, VS). If used, `--huts` should always be last.
+Use either the argument(s) `--country` or `--huts`. \\
+Arguments `--region`, `--altitude_min` and `--altitude_max` are optional and currently only available for CH.\\
+Regions can be individual cantons, or `central` (LU, OW, NW, SZ, UR, ZG), `east` (AI, AR, GL, GR, SG) and `west` (FR, JU, VD, VS). \\
+If used, `--huts` should always be last.
 Hut names can be partial; e.g. `vignettes` will match `Cabane des Vignettes CAS`. Name look up is case-insensitive and umlaut-tolerant (e.g. `schonbiel` or `schoenbiel` both match `Schönbielhütte SAC`). Quotes required for names with spaces (e.g. `"monte rosa"`). 
 
 
@@ -53,7 +58,7 @@ Monte Rosa Hütte SAC         0     0     0     0     0     0     0     0     0 
 Saved to output/availability_20260414_20260427_308-10-281-6-226.csv
 ```
 ```
-python hrs_tool.py --from_date 14.04.2026 --to_date 27.04.2026 --country ch --region west --altitude_min 2700
+python hrs_tool.py --from_date 14.04.2026 --to_date 16.04.2026 --country ch --region west --altitude_min 2700
 Discovering Swiss huts', region='west', alt≥2700.0m …
   Using swisstopo API to find Swiss huts …
   swisstopo found 27 candidate hut location(s):
@@ -71,22 +76,21 @@ Fetching availability:
   Arbenbiwak SAC: done
   Schalijochbiwak SAC: done
 
-                                14/4  15/4  16/4  17/4  18/4  19/4  20/4  21/4  22/4  23/4  24/4  25/4  26/4  27/4
-Hut                                                                                                               
-Cabane des Dix CAS                 5     7     0     0     0     0    26    31    14    57    25     4    51    50
-Cabane de l'A Neuve CAS            0     0     0     0     0     0     0     0     0     0     0     0     0     0
-Cabane Arpitettaz CAS              0     3     1     0     0     0     0     2     6     1     6     1    25     3
-Cabane de la Dent Blanche CAS      0     0     0     0     0     0     0     0     0     0     0     0     0     0
-Bivouac de l'Envers des Dorées    13    18    13    13     0    10     2    10    11    12     0     0     7    18
-Cresta-Biwak SAC                   6     6     6     6     6     6     6     0     6     6     6     6     6     6
-Fusshornbiwak                      8     8     8     8     3     8     8     8     8     8     8     0     8     8
-Aarbiwak SAC                      10     8     7     4     7    11    14    14    14    14    12    12    14    14
-Mischabeljochbiwak SAC            24    24    24    24    24    24    24    24    24    24    24    24    24    24
-Arbenbiwak SAC                    15    15    12    11    13    13    15    15    15    15    15    15    15    15
-Schalijochbiwak SAC                8     8     8     8     8     8     8     8     8     8     8     8     8     8
+                                14/4  15/4  16/4
+Hut                                             
+Cabane des Dix CAS                 5     7     0
+Cabane de l'A Neuve CAS            0     0     0
+Cabane Arpitettaz CAS              0     3     1
+Cabane de la Dent Blanche CAS      0     0     0
+Bivouac de l'Envers des Dorées    13    18    13
+Cresta-Biwak SAC                   6     6     6
+Fusshornbiwak                      8     8     8
+Aarbiwak SAC                      10     8     7
+Mischabeljochbiwak SAC            24    24    24
+Arbenbiwak SAC                    15    15    12
+Schalijochbiwak SAC                8     8     8
 
-Saved to output/availability_20260414_20260427_ch_west_min2700m.csv
-
+Saved to output/availability_20260414_20260416_ch_west_min2700m.csv
 ```
 
 ## Troubleshooting 
